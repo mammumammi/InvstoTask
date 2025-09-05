@@ -1,46 +1,105 @@
 "use client";
-import { useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
+type SliderProps = {
+    value: number,
+    displayValue: number,
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+}
 
+const Slider = ({value,displayValue, onChange}: SliderProps) => {
+
+    return(
+        <div className="py-10 ">
+            
+
+            <input type="range"
+            min={0}
+            max={100}
+            value={value}
+            onChange={ onChange}
+            className=" w-full bg-emptySliderBg appearance-none rounded-[10px] h-[10px]
+            [&::-webkit-slider-runnable-track]:rounded-[10px]
+            "
+            style={{
+                background: `linear-gradient(to right, var(--color-sliderBg) ${displayValue}%, var(--color-emptySliderBg) ${displayValue}%)`
+            }}
+            />
+
+        </div>
+    )
+}
 
 const PriceBox = () => {
 
-    const [value,setValue] = useState<number>(50);
-    const Slider = () => {
+    const [value,setValue] = useState<number>(0);
 
-        return(
-            <div className=" ">
-                {/* <div className="bg-slider w-[50px] h-[50px] m-auto  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
-                rounded-full absolute flex items-center justify-center cursor-pointer cursor">
+    const [displayValue,setDisplayValue] = useState<number>(0);
+    const hasInteracted = useRef(false);
 
-                <img src="/icon-slider.svg" alt=""
-                className=""
-                />
-                </div> */}
-
-                <input type="range"
-                min={0}
-                max={100}
-                value={value}
-                onChange={ (e) => setValue(Number(e.target.value))}
-                className=" w-full bg-emptySliderBg appearance-none rounded-[10px] h-[10px]
-                [&::-webkit-slider-runnable-track]:rounded-[10px]
-                "
-                style={{
-                    background: `linear-gradient(to right, var(--color-sliderBg) ${value}%, var(--color-emptySliderBg) ${value}%)`
-                }}
-                />
-
-            </div>
-        )
+    
+    
+    const handleSliderChange = (e : React.ChangeEvent<HTMLInputElement>) =>{
+        if (!hasInteracted.current){
+            hasInteracted.current = true;
+        }
+        setValue(Number(e.target.value));
     }
+
+    useEffect(()=> {
+        
+        if (!hasInteracted.current){
+            setDisplayValue(value);
+            return;
+        }
+
+        const timer = setTimeout(()=> {
+            setDisplayValue(value)
+        },12);
+
+        return ()=>{
+            clearTimeout(timer);
+        }
+    },[value]);
+
+    useEffect( ()=>{
+        const targetValue = 30;
+        let animationFrameId: number;
+
+        const animate = () => {
+
+            if (hasInteracted.current){
+                cancelAnimationFrame(animationFrameId);
+                return;
+            }
+
+            setValue(currentValue => {
+                const difference = targetValue - currentValue;
+
+                if (Math.abs(difference) < 0.1){
+                    cancelAnimationFrame(animationFrameId);
+                    return targetValue;
+                }
+                return currentValue + difference*0.1;
+            });
+            animationFrameId = requestAnimationFrame(animate);
+
+        }
+            animationFrameId = requestAnimationFrame(animate);
+
+            return () => {
+                cancelAnimationFrame(animationFrameId);
+            }
+
+        
+    },[]);
 
     return(
         <div className="m-auto mt-[30px] text-center bg-componentBg w-[90vw] md:w-[500px] h-[500px] md:h-[375px] rounded-[10px]  p-[20px] md:p-[40px] space-y-[20px]">
         
         <p>100K PAGEVIEWS</p>
 
-        <Slider/>
+        <Slider value={displayValue} onChange={handleSliderChange} displayValue={displayValue}/>
 
         <div>Pricing</div>
 
