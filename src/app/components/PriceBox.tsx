@@ -1,19 +1,35 @@
+"use client";
+import { useState } from "react";
+
+
 
 const PriceBox = () => {
 
-
+    const [value,setValue] = useState<number>(50);
     const Slider = () => {
 
         return(
-            <div className=" bg-emptySliderBg w-full
-            h-[10px] rounded-[10px] relative">
-                <div className="bg-slider w-[50px] h-[50px] m-auto  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
+            <div className=" ">
+                {/* <div className="bg-slider w-[50px] h-[50px] m-auto  top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
                 rounded-full absolute flex items-center justify-center cursor-pointer cursor">
 
                 <img src="/icon-slider.svg" alt=""
                 className=""
                 />
-                </div>
+                </div> */}
+
+                <input type="range"
+                min={0}
+                max={100}
+                value={value}
+                onChange={ (e) => setValue(Number(e.target.value))}
+                className=" w-full bg-emptySliderBg appearance-none rounded-[10px] h-[10px]
+                [&::-webkit-slider-runnable-track]:rounded-[10px]
+                "
+                style={{
+                    background: `linear-gradient(to right, var(--color-sliderBg) ${value}%, var(--color-emptySliderBg) ${value}%)`
+                }}
+                />
 
             </div>
         )

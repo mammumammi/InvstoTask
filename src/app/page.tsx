@@ -1,4 +1,4 @@
-import PriceBox from "./components/PriceBox"; // Adjust the path as necessary
+import PriceBox from "./components/PriceBox"; //Adjust the path as necessary
 
 
 
