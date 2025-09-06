@@ -1,5 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
+import Toggle from "./Toggle";
 
 type SliderProps = {
     value: number,
@@ -34,6 +35,8 @@ const PriceBox = () => {
 
     const [value,setValue] = useState<number>(0);
 
+    const [targetValue,setTargetValue] = useState<number>(30);
+
     const [displayValue,setDisplayValue] = useState<number>(0);
     const hasInteracted = useRef(false);
 
@@ -43,7 +46,7 @@ const PriceBox = () => {
         if (!hasInteracted.current){
             hasInteracted.current = true;
         }
-        setValue(Number(e.target.value));
+        setTargetValue(Number(e.target.value));
     }
 
     useEffect(()=> {
@@ -101,9 +104,15 @@ const PriceBox = () => {
 
         <Slider value={displayValue} onChange={handleSliderChange} displayValue={displayValue}/>
 
-        <div>Pricing</div>
+        <div>{value} /month</div>
 
-        <div>Price Toggle</div>
+        <div>
+            <p>Monthly Billing</p>
+            <Toggle/>
+            <div>
+                
+            </div>
+        </div>
 
         <div>Features</div>
 
