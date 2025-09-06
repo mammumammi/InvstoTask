@@ -11,7 +11,7 @@ type SliderProps = {
 const Slider = ({value,displayValue, onChange}: SliderProps) => {
 
     return(
-        <div className="py-10 w-full">
+        <div className="pt-10 w-full pb-3 md:pb-5">
             
 
             <input type="range"
@@ -31,9 +31,22 @@ const Slider = ({value,displayValue, onChange}: SliderProps) => {
     )
 }
 
-const PriceBox = () => {
+const PriceBox = () => { 
 
-    const [width,setWidth] = useState(innerWidth);
+    const [width,setWidth] = useState(0);
+
+    useEffect(()=>{
+        const handleResize = () => {
+            setWidth(window.innerWidth);
+        };
+
+        handleResize();
+        window.addEventListener('resize',handleResize);
+
+        return ()=> {
+            window.removeEventListener('resize',handleResize);
+        }
+    },[]);
 
     const [value,setValue] = useState<number>(0);
 
@@ -100,13 +113,17 @@ const PriceBox = () => {
     },[]);
 
     return(
-        <div className="m-auto mt-[30px] text-center bg-componentBg w-[90vw] md:w-[600px] h-[500px] md:h-[375px] rounded-[10px]  p-[20px] md:p-[40px] space-y-[20px] flex items-center flex-col ">
+        <div className="m-auto mt-[30px]  text-center bg-componentBg w-[90vw] md:w-[600px] h-[500px] md:h-auto rounded-[10px]  p-[20px] md:p-[40px] space-y-6 md:space-y-[20px] flex items-center flex-col  ">
         
-        <p>100K PAGEVIEWS</p>
+        <div className="flex flex-row justify-between items-center md:w-full ">
+        <p className="text-gray-400">100K PAGEVIEWS</p>
+        {width > 768 &&  (isYearly ? <span className="text-[30px] ">${(value * 12 * 0.75).toFixed(2)}<span className="text-[20px] text-gray-400 ml-2"> /year</span> </span> : <span className="text-[30px] ">${value.toFixed(2)} <span className="text-[20px] text-gray-400 ml-2">/month</span></span>)}
+        </div>
+        
 
         <Slider value={displayValue} onChange={handleSliderChange} displayValue={displayValue} />
 
-        {isYearly ? `$${(value * 12 * 0.75).toFixed(0)} /year` : `$${value} /month`}
+        { width< 768 && ( isYearly ? <span className="text-[30px] ">${(value * 12 * 0.75).toFixed(2)}<span className="text-[20px] text-gray-400 ml-2"> /year</span> </span> : <span className="text-[30px] ">${value.toFixed(2)} <span className="text-[20px] text-gray-400 ml-2">/month</span></span>)}
 
         <div className="flex items-center justify-center gap-0 w-full ml-4 md:ml-16 mt-5">
         <Toggle 
@@ -119,9 +136,21 @@ const PriceBox = () => {
             <span className='text-[10px] bg-orange-100 text-orange-400 rounded-full px-2 py-1 ml-1 md:ml-2 text-center'>{width > 768 ? "25% discount" : "-25%"}</span>
         
         </div>
-        <div>Features</div>
 
-        <div>Trial Button</div>
+        <hr className="mt-5 w-[90vw] md:w-[600px] text-emptySliderBg" />
+        <div className="flex flex-col md:flex-row w-full md:justify-between space-y-7 items-center h-full">
+        <div className="flex flex-col items-center justify-center space-y-2 w-full">
+            <div className="flex flex-row md:w-full text-gray-400 space-x-4"><img src="/icon-check.svg" alt="checklist1" className="object-contain w-[12px]" /><p>Unlimited Websites</p></div>
+            <div className="flex flex-row md:w-full  text-gray-400 space-x-4"><img src="/icon-check.svg" alt="checklist1" className="object-contain w-[12px]" /><p>100% data Ownership</p></div>
+            <div className="flex flex-row md:w-full text-gray-400 space-x-4"><img src="/icon-check.svg" alt="checklist1" className="object-contain w-[12px]" /><p>Email reports</p></div>
+        </div>
+        
+        <div className="flex w-full md:w-auto items-center justify-center md:h-full">
+
+        
+        <button className="text-[15px] text-buttonText bg-headTextBlue p-3 px-[60px] rounded-full   md:w-[250px] md:-mt-[30px] ">Start my trial</button>
+        </div>
+        </div>
         </div>
     )
 }

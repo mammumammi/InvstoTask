@@ -6,7 +6,7 @@ import PriceBox from "./components/PriceBox"; //Adjust the path as necessary
 export default function Home() {
   return (
     <main className="h-screen w-screen bg-[url('/bg-pattern.svg')] bg-no-repeat p-[10px]">
-      <div className="m-auto w-full text-center p-[20px] relative text-[15px]">
+      <div className=" md:mt-6  w-full text-center p-[20px] relative text-[15px]">
         <img src="/pattern-circles.svg" alt="circle patterns" 
         className="absolute top-[90px] md:top-[70px] left-[50%] transform -translate-x-[50%] -translate-y-[50px] z-0 "
         />

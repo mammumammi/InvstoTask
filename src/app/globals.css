@@ -18,6 +18,7 @@
   --color-slider: hsl(174, 86%, 45%);
   --color-sliderBg: hsl(174, 77%, 80%);
   --color-emptySliderBg: hsl(224, 65%, 95%);
+  --color-buttonText: hsl(226, 100%, 87%)
 }
 
 [data-theme="dark"] {
