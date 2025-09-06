@@ -113,10 +113,10 @@ const PriceBox = () => {
     },[]);
 
     return(
-        <div className="m-auto mt-[30px]  text-center bg-componentBg w-[90vw] md:w-[600px] h-[500px] md:h-auto rounded-[10px]  p-[20px] md:p-[40px] space-y-6 md:space-y-[20px] flex items-center flex-col  ">
+        <div className="m-auto md:mt-[30px]  text-center bg-componentBg w-[90vw] md:w-[600px] h-auto pb-10 md:pb-0 md:h-auto rounded-[10px]  p-[15px] md:p-[40px] space-y-2 md:space-y-[20px] flex items-center flex-col  ">
         
         <div className="flex flex-row justify-between items-center md:w-full ">
-        <p className="text-gray-400">100K PAGEVIEWS</p>
+        <p className="text-gray-400 text-[15px]">100K PAGEVIEWS</p>
         {width > 768 &&  (isYearly ? <span className="text-[30px] ">${(value * 12 * 0.75).toFixed(2)}<span className="text-[20px] text-gray-400 ml-2"> /year</span> </span> : <span className="text-[30px] ">${value.toFixed(2)} <span className="text-[20px] text-gray-400 ml-2">/month</span></span>)}
         </div>
         

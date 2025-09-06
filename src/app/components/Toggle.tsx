@@ -15,7 +15,7 @@ const Toggle: React.FC<ToggleProps> =({checked,onChange,onLabel,offLabel,activeC
         <div className="flex items-center gap-4">
             
         {offLabel &&  (
-            <span className={`text-[15px] font-semibold text-gray-500
+            <span className={` text-[11px] md:text-[15px] font-semibold text-gray-500
                 ${!checked ? "opacity-100" : "opacity-50"}
                 `}>{offLabel}</span>
         )} 
@@ -28,7 +28,7 @@ const Toggle: React.FC<ToggleProps> =({checked,onChange,onLabel,offLabel,activeC
             />
         </button>
         {onLabel && (
-            <span className={`text-[15px] font-semibold text-gray-500
+            <span className={`text-[11px] md:text-[15px]  font-semibold text-gray-500
                 ${checked ? "opacity-100" : "opacity-50"}
                 `}>{onLabel}</span>
         )}
