@@ -113,7 +113,7 @@ const PriceBox = () => {
     },[]);
 
     return(
-        <div className="m-auto md:mt-[30px]  text-center bg-componentBg w-[90vw] md:w-[600px] h-auto pb-10 md:pb-0 md:h-auto rounded-[10px]  p-[15px] md:p-[40px] space-y-2 md:space-y-[20px] flex items-center flex-col  ">
+        <div className="m-auto md:mt-[30px]  text-center bg-componentBg w-[90vw] md:w-[600px] h-auto pb-10 md:pb-0 md:h-auto rounded-[10px]  p-[15px] md:p-[40px] space-y-2 md:space-y-[20px] flex items-center flex-col mt-5 ">
         
         <div className="flex flex-row justify-between items-center md:w-full ">
         <p className="text-gray-400 text-[15px]">100K PAGEVIEWS</p>
