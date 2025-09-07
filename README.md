@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Invsto Task - Interactive Pricing Component
 
-## Getting Started
+A sleek and responsive web application built with modern technologies to showcase the Invsto task. This project demonstrates efficient design, clean UI, and smooth functionality.
 
-First, run the development server:
+🔗 **Live Demo:** [https://invsto-task-rust.vercel.app/](https://invsto-task-rust.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+##  Features
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- Responsive layout
+- Interactive UI components
+- Fast loading speed
+- Built with GSAP,TailwindCSS,Next.JS,TypeScript
+- Hosted on Vercel for seamless deployment
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+---
 
-## Learn More
+## Output
 
-To learn more about Next.js, take a look at the following resources:
+Output folder containing the output video and screenshot is in this google Drive link given below:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![Output Folder][https://drive.google.com/drive/folders/1F71BAPg9Schqyt1zbMt0f_8PgUfDgU02?usp=sharing]
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+![Output Video][https://drive.google.com/file/d/1pjaBFMBZJLNyiakaqN20WU6IjvqE0ZeW/view?usp=sharing]
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+##  Technologies Used
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **GSAP** - animation Library
+- **HTML / CSS / TypeScript** – Frontend design and interactivity
+- **NextJS** - React Framework
+- **Vercel** – Hosting and deployment platform
+
+---
+
