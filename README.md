@@ -20,9 +20,9 @@ A sleek and responsive web application built with modern technologies to showcas
 
 Output folder containing the output video and screenshot is in this google Drive link given below:
 
-![Output Folder][https://drive.google.com/drive/folders/1F71BAPg9Schqyt1zbMt0f_8PgUfDgU02?usp=sharing]
+![Output Folder](https://drive.google.com/drive/folders/1F71BAPg9Schqyt1zbMt0f_8PgUfDgU02?usp=sharing)
 
-![Output Video][https://drive.google.com/file/d/1pjaBFMBZJLNyiakaqN20WU6IjvqE0ZeW/view?usp=sharing]
+![Output Video](https://drive.google.com/file/d/1pjaBFMBZJLNyiakaqN20WU6IjvqE0ZeW/view?usp=sharing)
 
 ---
 
