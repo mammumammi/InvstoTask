@@ -20,7 +20,7 @@ const Slider = ({value,displayValue, onChange}: SliderProps) => {
             value={value}
             onChange={ onChange}
             className=" w-full bg-emptySliderBg appearance-none rounded-[10px] h-[10px]
-            [&::-webkit-slider-runnable-track]:rounded-[10px]
+            [&::-webkit-slider-runnable-track]:rounded-[10px] cursor-grabbing
             "
             style={{
                 background: `linear-gradient(to right, var(--color-sliderBg) ${displayValue}%, var(--color-emptySliderBg) ${displayValue}%)`
@@ -148,7 +148,7 @@ const PriceBox = () => {
         <div className="flex w-full md:w-auto items-center justify-center md:h-full">
 
         
-        <button className="text-[15px] text-buttonText bg-headTextBlue p-3 px-[60px] rounded-full   md:w-[250px] md:-mt-[30px] ">Start my trial</button>
+        <button className="text-[15px] text-buttonText bg-headTextBlue p-3 px-[60px] rounded-full   md:w-[250px] md:-mt-[30px] cursor-pointer ">Start my trial</button>
         </div>
         </div>
         </div>

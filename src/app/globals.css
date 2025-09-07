@@ -1,38 +1,65 @@
 @import "tailwindcss";
 
+/* 🌞 Light Theme (default) */
 :root {
   --background: hsl(230, 100%, 99%);
   --foreground: #171717;
-}
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-bg-shape: #F1F5FE;
+  --color-headTextBlue: hsl(227, 35%, 25%);
+  --color-paraTextBlue: hsl(225, 20%, 60%);
+
   --color-lightGray: hsl(224, 65%, 95%);
   --color-toggleBlue: hsl(223, 50%, 87%);
-  --color-paraTextBlue: hsl(225, 20%, 60%);
-  --color-headTextBlue: hsl(227, 35%, 25%);
   --color-componentBg: hsl(0, 0%, 100%);
   --color-slider: hsl(174, 86%, 45%);
   --color-sliderBg: hsl(174, 77%, 80%);
   --color-emptySliderBg: hsl(224, 65%, 95%);
-  --color-buttonText: hsl(226, 100%, 87%)
+  --color-buttonText: hsl(226, 100%, 87%);
 }
 
-[data-theme="dark"] {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+/* 🌙 Dark Theme (applied when <html class="dark"> is set) */
+html.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+
+  --color-bg-shape: hsl(228, 30%, 15%);
+  --color-headTextBlue: #FBFCFE;
+  --color-paraTextBlue: #A0AEC0;
+
+  --color-lightGray: hsl(224, 65%, 85%);
+  --color-toggleBlue: hsl(223, 40%, 60%);
+  --color-componentBg: hsl(228, 20%, 20%);
+  --color-slider: hsl(174, 86%, 45%);
+  --color-sliderBg: hsl(174, 77%, 40%);
+  --color-emptySliderBg: hsl(224, 20%, 20%);
+  --color-buttonText: hsl(226, 100%, 87%);
 }
 
+/* Map CSS variables into Tailwind tokens */
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-bg-shape: var(--color-bg-shape);
+  --color-headTextBlue: var(--color-headTextBlue);
+  --color-paraTextBlue: var(--color-paraTextBlue);
+
+  --color-lightGray: var(--color-lightGray);
+  --color-toggleBlue: var(--color-toggleBlue);
+  --color-componentBg: var(--color-componentBg);
+  --color-slider: var(--color-slider);
+  --color-sliderBg: var(--color-sliderBg);
+  --color-emptySliderBg: var(--color-emptySliderBg);
+  --color-buttonText: var(--color-buttonText);
+}
+
+/* Base styles */
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
 
 input[type="range"]{
 
